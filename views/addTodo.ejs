@@ -1,0 +1,33 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-6"></div>
+        <h2>Form Tambah Data Todo</h2>
+
+        <% if (typeof errors != 'undefined') { %>
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                <% errors.forEach(error => { %>
+                <li><%= error.msg %> </li>
+                <% }) %>
+            </ul>
+        </div>
+        <% } %>
+
+        <form method="POST" action="/tugas/add">
+            <div class="mb-3">
+                <label for="nama_tugas" class="form-label">Nama Tugas</label>
+                <input type="text" class="form-control" id="nama_tugas" name="nama_tugas" required>
+            </div>
+            <div class="mb-3">
+                <label for="tanggal" class="form-label">Tanggal</label>
+                <input type="date" class="form-control" id="tanggal" name="tanggal" required>
+            </div>
+            <div class="mb-3">
+                <label for="status" class="form-label">Status</label>
+                <input type="text" class="form-control" id="status" name="status" required>
+            </div>
+            <input type="hidden" class="form-control" id="id_pegawai" name="id_pegawai" value="<%= id_pegawai %>" required>
+            <button type="submit" class="btn btn-primary">Tambah Todo</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-6"></div>
+        <h2>Form Ubah Data Pegawai</h2>
+
+        <% if (typeof errors != 'undefined') { %>
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                <% errors.forEach(error => { %>
+                <li><%= error.msg %> </li>
+                <% }) %>
+            </ul>
+        </div>
+        <% } %>
+        <% console.log(pegawai) %>
+        <form method="POST" action="/home/update/<%= pegawai._id %>">
+            <input type="hidden" name="oldNama" value="<%= pegawai.oldNama || pegawai.nama %>">
+            <div class="mb-3">
+                <label for="nama" class="form-label">Nama</label>
+                <input type="text" class="form-control" id="nama" name="nama" value="<%= pegawai.nama %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="jenis_kel" class="form-label">Jenis Kelamin</label>
+                <input type="text" class="form-control" id="jenis_kel" name="jenis_kel" value="<%= pegawai.jenis_kel %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="departement" class="form-label">Departement</label>
+                <input type="text" class="form-control" id="departement" name="departement" value="<%= pegawai.departement %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="jabatan" class="form-label">Jabatan</label>
+                <input type="text" class="form-control" id="jabatan" name="jabatan" value="<%= pegawai.jabatan %>" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Edit Pegawai</button>
+        </form>
+    </div>
+</div>

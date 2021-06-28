@@ -1,0 +1,31 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>ToDo Pegawai</h2>
+            <% console.log(tugas) %>
+            <div class="container">
+                <a href="/tugas/add/<%= id_pegawai %> " class="btn btn-success rounded-pill mb-3 mt-3"> <i
+                    class="bi bi-info-circle"></i>
+                Tambah ToDo</a>
+                <% tugas.forEach((tugas) => { %>
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col md-6"><%= tugas.nama_tugas %></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <a href="/tugas/edit/<%= tugas._id %> " class="btn btn-success rounded-pill  badge mb-3">
+                        Edit</a>
+                    <a href="/tugas/delete/<%= tugas.id_pegawai %>/<%= tugas._id %>  " class="btn btn-success rounded-pill badge mb-3">
+                        Hapus</a>
+                </div>
+                <% }) %>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
